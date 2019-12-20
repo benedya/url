@@ -1,0 +1,47 @@
+{
+    "name": "benedya/url",
+    "type": "library",
+    "description" : "Simple URL manipulation tools",
+    "keywords": ["php", "url", "uri", "href", "link"],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1",
+        "psr/http-message": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Bohdan Turyk",
+            "email": "benedya@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^8.5",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpstan/phpstan": "^0.12.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Benedya\\Url\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Benedya\\Url\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "phpcs": "php-cs-fixer fix -v --diff --dry-run --allow-risky=yes;",
+        "phpstan-src": "phpstan analyse -l 8 src",
+        "phpstan-tests": "phpstan analyse -l 8 tests",
+        "phpstan": [
+            "@phpstan-src",
+            "@phpstan-tests"
+        ],
+        "phpunit": "phpunit --coverage-text",
+        "test": [
+            "@phpunit",
+            "@phpcs",
+            "@phpstan"
+        ]
+    }
+}
